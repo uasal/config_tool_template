@@ -1,0 +1,6 @@
+[sim_settings]  # settings for simulation tool
+npix = 2048 # number of pixels per frame
+beamrad = 0.3 # beam radius
+
+[network]  # settings for simulation tool
+host=123.456.123.7

@@ -1,13 +1,15 @@
 # config_tool_template
 Example of a configuration repository that is used with a specific simulation tool (or group of tools).
 
+The naming convention should be config_project_toolname. So a hypothetical example could be `config_hubble_acs`.
+
 The directory structure is designed as follows:
 
-- There should be one directory per tool (e.g. ETC_ESC). 
+- configuration parameters that are common to all tools in the repository belong in the common.toml file. 
+- There should be one directory per tool (e.g. tool1, tool2). 
   Note that in many cases there may be only a single tool per configuration repository, which is acceptable.
-- Sub-folders indicate the versions of the config file schema. If the code evolves and a new schema of the config file is required, then the version should be augmented. See the FAQ for more details.
 
-- All configs must have an `_init.toml` file which contains the default set of parameters for that tool.
+- All tool configs must have an `_init.toml` file which contains the default set of parameters for that tool.
 - Config files must contain both values and units. Units shall utilize the astropy format.
 - Values without a unit will be marked as unitless
 - The origin of the values should be in a comment (for now).
@@ -60,8 +62,10 @@ beamrad = 0.4 # fractional beam radius
 Good question! This is currently being explored. They can be left blank for now.
 
 #. When should the configuration version be augmented?
-- When the code is no longer backwards compatible and the format for the file no longer applies.
+- configuration versions are not currently tracked. 
+- Normally, when the code is no longer backwards compatible and the format for the file no longer applies.
   This occurs when either additional mandatory keywords are required or removed.
+  This cannot be implemented because the tools are not utilizes schemas for configuration and therefore config files cannot be validated against versions of the schemas.
 
 #. Should I use [symantic versioning](https://semver.org/)? 
 Generally not as only major revisions require version bumps.
