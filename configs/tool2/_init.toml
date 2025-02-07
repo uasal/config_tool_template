@@ -1,0 +1,4 @@
+[sim_settings]  # settings for simulation tool
+npix = 1024 # number of pixels per frame
+beamrad = 0.24 # beam radius
+

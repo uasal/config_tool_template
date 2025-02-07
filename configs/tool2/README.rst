@@ -1,1 +1,1 @@
-Configuration files for lsst.ts.ATDome.ATDome
+Configuration files for tool2
