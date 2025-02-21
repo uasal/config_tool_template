@@ -5,13 +5,15 @@ The naming convention should be config_project_toolname. So a hypothetical examp
 
 The directory structure is designed as follows:
 
-- configuration parameters that are common to all tools in the repository belong in the common.toml file. 
-- There should be one directory per tool (e.g. tool1, tool2). 
+- Configuration parameters that are common to all tools in the repository belong in the `common.toml` file. 
+- There should be one directory per tool (e.g. tool1, tool2) within the `configs` directory. 
   Note that in many cases there may be only a single tool per configuration repository, which is acceptable.
 
+- A separate directory (should be named the same as the repo) is needed for python packaging (`config_project`).
 - All tool configs must have an `_init.toml` file which contains the default set of parameters for that tool.
-- Config files must contain both values and units. Units shall utilize the astropy format.
-- Values without a unit will be marked as unitless
+- Config files must contain both values and units. 
+  - Units shall utilize the astropy format.
+- Values without a unit will be marked as *unitless*.
 - The origin of the values should be in a comment (for now).
 - At this time, no other filenames should start with an `_`. This functionality is reserved for future feature implementation(s).
 - Any added configuration file must contain the *full set* of available parameters and not just overrides for the defaults.
@@ -67,7 +69,7 @@ Good question! This is currently being explored. They can be left blank for now.
   This occurs when either additional mandatory keywords are required or removed.
   This cannot be implemented because the tools are not utilizes schemas for configuration and therefore config files cannot be validated against versions of the schemas.
 
-#. Should I use [symantic versioning](https://semver.org/)? 
+#. Should I use [sematic versioning](https://semver.org/)? 
 Generally not as only major revisions require version bumps.
 
 
